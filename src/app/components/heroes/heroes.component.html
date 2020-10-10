@@ -1,1 +1,15 @@
-<p>heroes works!</p>
+<div class="index-content row row-cols-1 row-cols-md-3">
+    <div class="card col-mb4" *ngFor="let heroe of heroes">
+        <img src={{heroe.img}} class="card-img-top img-fluid h-20" alt="...">
+        <div class="card-block">
+            <h4 class="card-title">{{heroe.nombre}}</h4>
+            <p>{{heroe.bio}}</p>
+
+        </div>
+        <button class="btn btn-outline-primary margin-top= auto"> Ver mas... </button>
+
+
+
+    </div>
+
+</div>
