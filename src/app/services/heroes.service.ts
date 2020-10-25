@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -59,6 +60,26 @@ export class HeroesService {
       getHeroes(){
 
         return this.heroes;
+      }
+
+      // tslint:disable-next-line: typedef
+      getHeroe(id: number){
+        return this.heroes[id];
+      }
+      // tslint:disable-next-line: typedef
+      getHeroeByName(name: string){
+        name = name.toLowerCase();
+        let heroesEncontrados: Heroe[] = [];
+
+// tslint:disable-next-line: align
+for (let heroe of this.heroes){
+
+       let nombre: string = heroe.nombre.toLowerCase();
+       if (nombre.startsWith(name)){
+         heroesEncontrados.push(heroe);
+       }
+      }
+      return heroesEncontrados;
       }
 constructor(){
     console.log('Servicio listo para usarse');

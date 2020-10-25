@@ -1,4 +1,4 @@
-<div class="heroesContainer row row-cols-1 row-cols-md-3">
+<div *ngIf="heroes.length>0; else noResults" class="heroesContainer row row-cols-1 row-cols-md-3">
     <!--md, para computadoras se muestra en columnas de 3
 xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
     <div class="card col-mb4" *ngFor="let heroe of heroes; let i = index">
@@ -8,11 +8,15 @@ xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
             <p>{{heroe.bio}}</p>
 
         </div>
-        <button (click)="verHeroe(i)" type="button" [routerLink]="['heroe',i]" class="btn btn-outline-primary"> Ver mas... </button>
-        <!-- <a [routerLink]="['heroe',i]" class="btn btn-outline-primary"> Ver mas... </a>     -->
-
-
 
     </div>
 
 </div>
+
+<ng-template #noResults>
+    <div class="alert alert-info">
+        No hay resultados
+
+    </div>
+
+</ng-template>
